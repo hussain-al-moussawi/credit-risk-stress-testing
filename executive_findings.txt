@@ -1,0 +1,118 @@
+
+CREDIT DEFAULT PREDICTION & STRESS TESTING ENGINE
+=================================================
+
+EXECUTIVE FINDINGS
+
+MODEL PERFORMANCE
+-----------------
+Random Forest ROC-AUC: 0.775
+Logistic Regression ROC-AUC: 0.754
+
+Random Forest F1 Score: 0.537
+Logistic Regression F1 Score: 0.512
+
+The Random Forest provided the stronger overall
+discrimination and F1 performance, while Logistic
+Regression achieved slightly higher recall.
+
+
+PROBABILITY CALIBRATION
+-----------------------
+Observed test-set default rate:
+22.13%
+
+Calibrated average predicted default probability:
+22.08%
+
+Brier Score before calibration:
+0.1696
+
+Brier Score after calibration:
+0.1362
+
+
+RISK SEGMENTATION
+-----------------
+Very Low Risk observed default rate:
+6.09%
+
+Very High Risk observed default rate:
+54.96%
+
+The highest-risk 20% of customers captured
+approximately 49.7% of all observed defaults.
+
+The Very High Risk segment had approximately
+2.48x the portfolio-wide default rate.
+
+
+STRESS TEST
+-----------
+Base Case:
+22.08%
+
+Moderate Stress:
+28.31%
+
+Severe Stress:
+47.17%
+
+Relative increase under moderate stress:
+28.2%
+
+Relative increase under severe stress:
+113.7%
+
+
+HIGH-RISK CUSTOMER CHARACTERISTICS
+----------------------------------
+Compared with the full portfolio, the Very High Risk
+segment displayed:
+
+- substantially more delayed repayment months
+- materially worse recent repayment behaviour
+- approximately 60% lower average payments
+- approximately 28% higher credit utilisation
+- approximately 34% lower average credit limits
+
+
+THRESHOLD ANALYSIS
+------------------
+Under an illustrative assumption that missing a real
+default is five times as costly as falsely flagging a
+non-defaulting borrower:
+
+Standard threshold:
+0.50
+
+Cost-sensitive threshold:
+0.15
+
+Standard illustrative cost:
+4378 units
+
+Cost-sensitive illustrative cost:
+3406 units
+
+Recall increased from:
+38.3%
+
+to:
+74.4%
+
+This improvement came at the cost of substantially
+more false-positive classifications.
+
+
+LIMITATIONS
+-----------
+- Dataset represents Taiwanese credit-card customers.
+- Stress scenarios are illustrative behavioural shocks,
+  not regulatory or macroeconomic forecasts.
+- Feature importance does not establish causality.
+- Cost ratios used for threshold selection are
+  illustrative rather than lender-specific.
+- Calibration performance should not be interpreted
+  as proof of perfect individual-level probability
+  estimation.

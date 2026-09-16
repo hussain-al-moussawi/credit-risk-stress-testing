@@ -1,0 +1,159 @@
+
+CREDIT DEFAULT PREDICTION & STRESS TESTING ENGINE
+=================================================
+
+MODEL PERFORMANCE
+
+Logistic Regression
+Accuracy:  0.745
+Precision: 0.444
+Recall:    0.606
+F1 Score:  0.512
+ROC-AUC:   0.754
+
+Random Forest
+Accuracy:  0.778
+Precision: 0.498
+Recall:    0.582
+F1 Score:  0.537
+ROC-AUC:   0.775
+
+
+CONFUSION MATRICES
+
+Logistic Regression
+True Negatives: 3659
+False Positives: 1008
+False Negatives: 522
+True Positives: 804
+
+Random Forest
+True Negatives: 3890
+False Positives: 777
+False Negatives: 554
+True Positives: 772
+
+
+TOP RANDOM FOREST FEATURES
+
+PAY_0:          0.135781
+MAX_DELAY:      0.129238
+MONTHS_DELAYED: 0.121828
+PAY_2:          0.051669
+AVG_PAYMENT:    0.041075
+UTILISATION:    0.038734
+PAY_3:          0.035423
+LIMIT_BAL:      0.032998
+AVG_BILL:       0.032196
+BILL_AMT1:      0.029816
+PAY_AMT1:       0.028718
+PAY_AMT2:       0.027543
+PAY_4:          0.026916
+PAY_AMT3:       0.024232
+BILL_AMT2:      0.024099
+
+
+INITIAL UNCALIBRATED STRESS TEST
+
+Base:            39.66%
+Moderate stress: 49.09%
+Severe stress:   66.18%
+
+Relative increase under moderate stress: 23.8%
+Relative increase under severe stress:   66.9%
+
+IMPORTANT:
+These initial stress probabilities came from the class-weighted
+Random Forest and should be treated as model risk scores until
+probability calibration is completed.
+
+
+PROBABILITY CALIBRATION
+=======================
+
+Actual default rate in test data: 22.13%
+Uncalibrated RF average probability: 39.66%
+Calibrated RF average probability: 22.08%
+
+Interpretation:
+The class-weighted Random Forest produced inflated raw probability
+scores at portfolio level. Sigmoid calibration brought the average
+predicted probability close to the observed test-set default rate.
+
+
+CALIBRATION QUALITY
+===================
+
+Uncalibrated RF Brier Score: 0.1696
+Calibrated RF Brier Score: 0.1362
+
+Note:
+Lower Brier Score indicates better probabilistic accuracy.
+
+
+FINAL CALIBRATED STRESS TEST
+============================
+
+Base Case: 22.08%
+Moderate Stress: 28.31%
+Severe Stress: 47.17%
+
+Relative Increase Under Moderate Stress:
+28.2%
+
+Relative Increase Under Severe Stress:
+113.7%
+
+Scenario assumptions:
+
+Moderate Stress:
+- Customer payments reduced by 10%
+- Outstanding bill amounts increased by 5%
+- Most recent repayment status deteriorated by one level
+
+Severe Stress:
+- Customer payments reduced by 25%
+- Outstanding bill amounts increased by 10%
+- Recent repayment behaviour deteriorated more substantially
+
+IMPORTANT:
+These scenarios are illustrative behavioural stress scenarios,
+not regulatory forecasts or Bank of England stress-test scenarios.
+
+
+HIGH-RISK SEGMENT
+=================
+
+Very High Risk customers: 1199
+
+Average predicted probability:
+57.19%
+
+Observed default rate:
+54.96%
+
+Whole portfolio observed default rate:
+22.13%
+
+
+HIGH-RISK CONCENTRATION
+=======================
+
+Total defaults in test portfolio:
+1326
+
+Defaults in Very High Risk group:
+659
+
+Share of all defaults captured by
+the highest-risk 20%:
+49.70%
+
+Very High Risk observed default rate:
+54.96%
+
+Whole portfolio observed default rate:
+22.13%
+
+Risk lift:
+2.48x
