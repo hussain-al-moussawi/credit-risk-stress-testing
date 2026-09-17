@@ -4,6 +4,12 @@ A credit-risk modelling project using Python to predict customer default, calibr
 
 The analysis uses the UCI Default of Credit Card Clients dataset, containing 30,000 credit-card customers and historical repayment information.
 
+## Executive summary
+
+A concise one-page summary of the modelling approach, key results and business implications is available here:
+
+[View the Executive Summary](Credit%20Risk%20Executive%20Summary.pdf)
+
 ## Project objective
 
 The project answers four practical credit-risk questions:
